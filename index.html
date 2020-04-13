@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Noéflix</title>
+        <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
+        />
+        <link href="css/main.css" rel="stylesheet">
+        <link rel="shortcut icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico"/>
+        </head>
+    <body>
+
+    <div class="loading">
+        <div class="content">
+            <img src="https://fontmeme.com/permalink/200413/7c274efadcd40372cf3d3a03b41771ad.png" />
+            <br />
+
+            <div style="margin-top: 60px;">
+                <div class="profile" id="start">
+                    <img src="img/no1.jpg" />
+                </div>
+
+                <div class="profile" id="start2">
+                    <img src="img/no2.jpg" />
+                </div>
+
+                <div class="profile" id="start3">
+                    <img src="img/no3.jpg" />
+                </div>
+
+                <div style="clear: both"></div>
+            </div>
+        </div>
+
+
+        <video id="netflix" style="display: none;position: fixed;right: 0;bottom: 0;min-width: 100%;min-height: 100%;">
+            <source src="video/netflix.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+    <div class="contain">
+
+
+        <div class="top">
+            <div class="logo">
+                <img src="https://fontmeme.com/permalink/200413/7c274efadcd40372cf3d3a03b41771ad.png" alt="netflix-font" border="0">
+            </div>
+
+            <video id="video" style="display: none;">
+                <source src="video/minions.mp4" type="video/mp4" id="source">
+            </video>
+
+            <div class="info">
+                <div class="produc">
+                    <img src="https://fontmeme.com/permalink/200413/7c274efadcd40372cf3d3a03b41771ad.png" alt="netflix-font" border="0"> PRODUCTION PRESENTE
+                </div>
+                <div class="title">
+                    Joyeux anniversaire !
+                </div>
+                <div class="description">
+                    Aujourd'hui c'est ton anniversaire ! Alors bon anniversaire...
+                </div>
+            </div>
+
+            <script>
+
+                function startVideo() {
+                    setTimeout(function () {
+                        $('#video').fadeIn('slow', function() {
+                            var vid = document.getElementById("video");
+                            vid.loop = false;
+                            vid.muted = false;
+                            vid.play();
+                        });
+                    }, 1200);
+                }
+
+                function launchVideo(url, text, description) {
+                    $('#video').fadeOut('slow', function() {
+                        var source = document.getElementById("source");
+                        source.src = url;
+
+                        var vid = document.getElementById("video");
+                        vid.loop = false;
+                        vid.muted = false;
+                        vid.controls = false;
+                        vid.load();
+
+                        $('.title').html(text);
+                        $('.description').html(description);
+
+                        vid.addEventListener('ended', function () {
+                            vid.controls = true;
+                        });
+
+                        $('#video').fadeIn('slow', function() {
+                            vid.play();
+                        });
+                    });
+                }
+            </script>
+        </div>
+
+
+
+        <div class="row" data-simplebar>
+            <div class="row__inner">
+
+                <div class="tile" onclick="launchVideo('video/1.mov', 'Chez Babeth et Tutu', 'C\'est déjà l\'apéro depuis longtemps chez Babeth et Tutu')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/1.png" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            Chez Babeth et Tutu
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile" onclick="launchVideo('video/2.mp4', 'Charline et Kyan', 'Ca dance chez Charline et Kyan')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/2.png" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            Charline et Kyan
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile" onclick="launchVideo('video/3.mov', 'Michaël', 'Ca sport chez Michaël')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/3.png" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            Michaël
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tile" onclick="launchVideo('video/4.mov', 'Enora et Benoit', 'Enora et Benoit tranquille sous le parasol')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/4.png" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            Enora et Benoit
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile" onclick="launchVideo('video/5.mp4', 'Flore et le soleil', 'Flore en mode couché de soleil')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/5.png" alt="" />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            Flore et le soleil
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile" onclick="launchVideo('video/6.mp4', 'Francis et Marie', 'Francis et Marie Françoise et la communication silencieuse')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/6.png" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            Francis et Marie
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile" onclick="launchVideo('video/7.mp4', 'Tib, pas le voisin', 'Heureux comme un Tib')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/7.png" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            Heureux comme un Tib
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile" onclick="launchVideo('video/8.mov', 'La Famille Moinard', 'La Famille Moinard du Frigo')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/8.png" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            La Famille Moinard
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile" onclick="launchVideo('video/9.mp4', 'La famille Vivies - Episode 1', 'La famille Vivies dans son chalet Jurassien')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/9.png" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            La famille Vivies dans son chalet Jurassien
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tile" onclick="launchVideo('video/10.mp4', ' La Famille Vivies - Episode 2', 'La Famille Vivies en queuleuleu Jurassienne')">
+                    <div class="tile__media">
+                        <img class="tile__img" src="video/10.png" alt=""  />
+                    </div>
+                    <div class="tile__details">
+                        <div class="tile__title">
+                            La Famille Vivies en queuleuleu Jurassienne
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="application/javascript">
+        $(window).on('load', function() {
+            $('.profile').on('click', function() {
+                $('#netflix').fadeIn('slow', function() {
+                    var vid = document.getElementById("netflix");
+                    vid.loop = false;
+                    vid.muted = false;
+                    vid.load();
+                    vid.play();
+
+                    vid.addEventListener('ended', function () {
+                        $('.loading').fadeOut('slow', function () {
+                            startVideo();
+                        })
+                    });
+                });
+            });
+        });
+    </script>
+    </body>
+</html>
